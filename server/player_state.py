@@ -1,6 +1,7 @@
 import math
 
 
+
 class PlayerState:
     def __init__(self, player_id: str, username: str, start_x: float, start_y: float):
         self.player_id = player_id
@@ -31,12 +32,19 @@ class PlayerState:
         self.aim_dir_x = 1.0
         self.aim_dir_y = 0.0
 
-    def apply_input(self, input_data: dict) -> None:
-        self.move_x = max(-1.0, min(1.0, float(input_data.get("move_x", 0))))
-        self.move_y = max(-1.0, min(1.0, float(input_data.get("move_y", 0))))
+    def apply_input(
+        self,
+        move_x: float,
+        move_y: float,
+        aim_dir_x: float,
+        aim_dir_y: float,
+        shooting: bool,
+    ) -> None:
+        self.move_x = max(-1.0, min(1.0, float(move_x)))
+        self.move_y = max(-1.0, min(1.0, float(move_y)))
 
-        aim_x = float(input_data.get("aim_dir_x", self.aim_dir_x))
-        aim_y = float(input_data.get("aim_dir_y", self.aim_dir_y))
+        aim_x = float(aim_dir_x)
+        aim_y = float(aim_dir_y)
         magnitude = math.hypot(aim_x, aim_y)
         if magnitude > 0.0:
             self.aim_dir_x = aim_x / magnitude
