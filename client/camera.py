@@ -70,3 +70,10 @@ class Camera:
             world_position
             - self.position
         )
+
+    def world_to_screen(
+        self,
+        world_position
+    ):
+
+        return self.apply(world_position)
