@@ -61,6 +61,9 @@ async def handler(websocket):
                 room.handle_player_input(player_id, data, time.time())
             elif data.get("type") == "ping":
                 pass
+    except Exception as e:
+        print(f"CRITICAL SERVER ERROR: {e}")
+        raise e
     finally:
         if websocket in connected_clients:
             del connected_clients[websocket]
