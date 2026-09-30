@@ -44,7 +44,7 @@ camera = Camera(
 
 game_map = GameMap()
 local_id = f"player_{random.randint(1000, 9999)}"
-start_network_thread("wss//cloud-multiplayer-game.onrender.com/", local_id, "TestUser")
+start_network_thread("wss//cloud-multiplayer-game.onrender.com", local_id, "TestUser")
 
 players_dict = {}
 server_pellets = []

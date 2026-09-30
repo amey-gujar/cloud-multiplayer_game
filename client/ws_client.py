@@ -31,10 +31,10 @@ async def _network_loop(uri: str, player_id: str, username: str):
                         await asyncio.sleep(0.01)
 
                 await asyncio.gather(receiver(), sender())
-        except Exception:
-            pass
+        except Exception as e:
+                print(f"WebSocket Connection Failed: {e}") 
         finally:
-            connected = False
+                connected = False
 
         await asyncio.sleep(2)
 
