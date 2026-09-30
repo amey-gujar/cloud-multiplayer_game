@@ -25,6 +25,13 @@ class Player:
 
         self.rect.center = self.position
 
+    def apply_input(self, move_x, move_y, shooting, aim_x, aim_y):
+        self.move_x = move_x
+        self.move_y = move_y
+        self.shooting = shooting
+        self.aim_x = aim_x
+        self.aim_y = aim_y
+
 
     def update_from_server(self, server_data: dict):
         self.position.x = server_data.get("x", self.position.x)
