@@ -31,6 +31,9 @@ class PlayerState:
         self.move_y = 0
         self.aim_dir_x = 1.0
         self.aim_dir_y = 0.0
+        self.aim_x = 0
+        self.aim_y = 0
+        self.shooting = False
 
     def apply_input(
         self,
