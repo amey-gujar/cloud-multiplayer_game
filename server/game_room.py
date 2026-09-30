@@ -1,6 +1,7 @@
 import math
 import time
 
+
 from map_data import MAP_WIDTH, MAP_HEIGHT, WALLS
 from physics import apply_player_movement
 from player_state import PlayerState
@@ -44,6 +45,7 @@ class GameRoom:
 		player.apply_input(
 			input_data.get("move_x", 0),
 			input_data.get("move_y", 0),
+			input_data.get("shooting", False),
 			input_data.get("aim_x", 0),
 			input_data.get("aim_y", 0),
 		)
