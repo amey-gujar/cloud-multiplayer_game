@@ -51,7 +51,7 @@ class GameRoom:
 		)
 		if input_data.get("shoot") and player.can_shoot(current_time):
 			self.pellets.extend(
-				spawn_shotgun_pellets(player.x, player.y, player.aim_x, player.aim_y)
+				spawn_shotgun_pellets(player_id, player.x, player.y, player.aim_x, player.aim_y)
 			)
 			player.ammo -= 1
 			player.last_shot_time = current_time
