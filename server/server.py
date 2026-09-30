@@ -74,4 +74,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        asyncio.run(main())
+    else:
+        asyncio.create_task(main())

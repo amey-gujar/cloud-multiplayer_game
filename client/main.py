@@ -79,6 +79,7 @@ while running:
         last_ping_time = current_time
 
     state = get_latest_state()
+    print(f"Network State: {state}")
     if state is not None:
         for p_data in state.get("players", []):
             pid = p_data["id"]
