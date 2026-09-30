@@ -1,0 +1,31 @@
+CC Game Project/
+├── client/                     # Pygame Client App
+│   ├── assets/                 # Images, sprites, sounds
+│   ├── GUNS/                   # Client gun visuals & muzzle effects
+│   │   ├── pellet.py
+│   │   └── shotgun.py
+│   ├── UI/                     # HUD, health bars, menus
+│   ├── camera.py               # Local camera follow logic
+│   ├── main.py                 # Pygame game loop & input collector
+│   ├── map.py                  # Tilemap & visual background renderer
+│   ├── player.py               # Visual player sprite & animation handler
+│   ├── wall.py                 # Wall image rendering
+│   └── ws_client.py            # [NEW] Network thread & WebSocket receiver queue
+│
+├── server/                     # Authoritative Python Server (Deploy to Render)
+│   ├── server.py               # [NEW] WebSockets listener entrypoint
+│   ├── game_room.py            # [NEW] 20 FPS tick loop, game state, zone shrink
+│   ├── player_state.py         # [NEW] Server player models (X, Y, HP, ID)
+│   ├── physics.py              # [NEW] Pure Python collision math (AABB, no Pygame)
+│   ├── map_data.py             # [NEW] Static wall bounding boxes (x, y, w, h)
+│   ├── weapons.py              # [NEW] Bullet raycasting, speed, and hit detection
+│   ├── db.py                   # [NEW] Firebase Admin SDK connector (writes final scores)
+│   ├── Dockerfile              # [NEW] Container build setup for Render deployment
+│   └── requirements.txt        # [NEW] websockets, firebase-admin
+│
+├── hosting/                    # Firebase Hosting (Web Leaderboard)
+│   └── index.html              # Static HTML/JS page reading Firestore top wins
+│
+├── .gitignore
+├── firebase.json               # Firebase CLI configuration
+└── progress.txt
